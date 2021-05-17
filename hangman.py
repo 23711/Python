@@ -25,18 +25,31 @@ def askUser():
 
 def run():
     word = getFileInfoInArray("./archivos/words.txt")
-    ask = 0
-    arrayWord = ["_ " for i in word]
+    arrayWord = [" _ " for i in word]
     wordHid = hidWord(arrayWord)
-    print(wordHid)
-    while ask <= len(arrayWord):
+    timeAsking = 0 
+    # print(arrayWord)
+    while word != wordHid :
+        # os.system("clear")
+        print(wordHid)
         wordOfUser = askUser()
-        for letter in word:
-            if letter == wordOfUser:
-                ask = ask + 1
-                for i in range(0,len(word) + 1):
-                    # arrayWord[i] = letter
-
+        for i in range(0,len(word)):
+            if word[i] == wordOfUser:
+                arrayWord[i] = word[i]
+                wordHid = "".join(arrayWord)
+            else: 
+                if timeAsking == 0:
+                    print('''
+                        0
+                    ''')
+                    timeAsking = timeAsking + 1
+                if timeAsking == 1:
+                    print('''
+                        0
+                        |
+                    ''')
+                    timeAsking = timeAsking + 1
+    print("you win!")
 
 
 
